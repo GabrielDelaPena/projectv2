@@ -1,8 +1,8 @@
 version: 2.1
 
 orbs:
-  java: circleci/openjdk@1.2.2
-  docker: circleci/docker@1.3.0
+  java: circleci/openjdk@1.1.9
+  docker: circleci/docker@1.4.1
 
 jobs:
   build:
