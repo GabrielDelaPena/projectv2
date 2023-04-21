@@ -48,3 +48,14 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
 
+      - name: Login to Docker Container
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_CONTAINER_PASSWORD }}
+
+      - name: Pull & Run container
+        run: |
+          docker tag projectv2:latest ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
+          docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
