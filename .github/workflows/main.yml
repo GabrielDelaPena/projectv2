@@ -53,3 +53,8 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_CONTAINER_PASSWORD }}
+
+      - name: Pull & Run container
+        run: |
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
+          docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
