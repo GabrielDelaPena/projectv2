@@ -48,7 +48,8 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
 
-      - name: Pull and Run Docker Image
-        run: |
-          docker pull gabriel123125/projectv2
-          docker run -d -p 8080:8080 gabriel123125/projectv2
+      - name: Login to Docker Container
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_CONTAINER_PASSWORD }}
