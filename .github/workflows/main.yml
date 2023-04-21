@@ -47,3 +47,8 @@ jobs:
           dockerfile: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
+
+      - name: Pull and Run Docker Image
+        run: |
+          docker pull gabriel123125/projectv2
+          docker run -d -p 8080:8080 gabriel123125/projectv2
