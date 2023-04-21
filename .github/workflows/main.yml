@@ -55,7 +55,7 @@ jobs:
           password: ${{ secrets.DOCKER_CONTAINER_PASSWORD }}
 
       - name: Pull & Run container
-        run: |
+        run: | 
           docker tag projectv2 ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
           docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
