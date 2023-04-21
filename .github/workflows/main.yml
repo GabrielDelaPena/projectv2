@@ -56,6 +56,6 @@ jobs:
 
       - name: Pull & Run container
         run: |
-          docker tag projectv2:latest ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
+          docker tag projectv2: latest ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
           docker push ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
           docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:latest
