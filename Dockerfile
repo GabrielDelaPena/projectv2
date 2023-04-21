@@ -2,7 +2,7 @@ FROM openjdk:17-jdk
 
 WORKDIR /app
 
-COPY target/projectv2-1.0.0.jar /app/projectv2.jar
+COPY target/projectv2-0.0.1-SNAPSHOT.jar /app/projectv2.jar
 
 EXPOSE 8080
 
