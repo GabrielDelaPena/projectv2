@@ -11,4 +11,9 @@ public class MainController {
         return "This is project v2";
     }
 
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello World";
+    }
+
 }
