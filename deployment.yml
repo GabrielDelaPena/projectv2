@@ -16,7 +16,7 @@ spec:
         - name: projectv2
           image: gabriel123125/projectv2
           ports:
-            - containerPort: 8080
+            - containerPort: 8080:8080
 ---
 apiVersion: v1
 kind: Service
@@ -28,4 +28,4 @@ spec:
     app: projectv2
   ports:
     - protocol: TCP
-      port: 8080
+      port: 8080:8080
