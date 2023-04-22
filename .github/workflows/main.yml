@@ -50,7 +50,3 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
 
-      - name: Deploy to kubernetes
-        run: |
-          kubectl apply -f deployment.yml
-
