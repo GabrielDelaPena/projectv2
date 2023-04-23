@@ -50,18 +50,9 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
 
-  deploy:
-    name: Deploy to Kubernetes
-    needs: build-deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Configure kubectl
-        uses: azure/k8s-set-context@v1
-        with:
-          method: kubeconfig
-          kubeconfig: ${{ secrets.KUBECONFIG }}
-
-      - name: Update Deployment Image
+      - name: Deploy to Kubernetes
+        env:
+          KUBECONFIG: ${{ github.workspace }}/kubeconfig.yaml
         run: kubectl set image deployment/projectv2 projectv2=${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
 
 
