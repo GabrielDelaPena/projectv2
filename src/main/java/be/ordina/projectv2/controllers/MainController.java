@@ -18,7 +18,7 @@ public class MainController {
 
     @GetMapping("/bye")
     public String bye() {
-        return "Bye World";
+        return "Bye World!!!";
     }
 
 }
