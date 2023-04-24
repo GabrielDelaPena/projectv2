@@ -51,6 +51,6 @@ jobs:
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
 
       - name: Deploy/Deploy to Kubernetes
-        run: kubectl set image deployment/projectv2 projectv2=${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
+        run: kubectl set image deployment/projectv2 projectv2=${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }} --server=https://127.0.0.1:61620
 
 
