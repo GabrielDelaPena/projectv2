@@ -50,9 +50,6 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
 
-      - name: Set KUBECONFIG environment variable
-        run: echo "::set-env name=KUBECONFIG::%cd%/C:/Users/GaDl/.kube/config"
-
       - name: Deploy to Kubernetes
         run: kubectl set image deployment/projectv2 projectv2=gabriel123125/projectv2:v61 --server=https://127.0.0.1:61620
 
