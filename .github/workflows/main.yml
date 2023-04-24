@@ -50,7 +50,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
 
-      - name: Deploy to Kubernetes
+      - name: Deploy/Deploy to Kubernetes
         run: kubectl set image deployment/projectv2 projectv2=${{ secrets.DOCKER_HUB_USERNAME }}/projectv2:${{ env.TAG_NAME }}
 
 
