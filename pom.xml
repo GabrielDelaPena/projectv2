@@ -36,6 +36,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-		<directory>/project/target</directory>
+		<directory>/projectv2/target</directory>
 	</build>
 </project>
