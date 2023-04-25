@@ -13,12 +13,12 @@ public class MainController {
 
     @GetMapping("/hello")
     public String hello() {
-        return "Hello World";
+        return "Hello World!";
     }
 
     @GetMapping("/bye")
     public String bye() {
-        return "Bye World";
+        return "Bye World!";
     }
 
 }
