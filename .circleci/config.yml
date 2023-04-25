@@ -9,42 +9,42 @@ jobs:
       - run: mvn clean package
       - run: ls -al target
       - persist_to_workspace:
-    root: .
-    paths:
-      - target/projectv2-0.0.1-SNAPSHOT.jar
+          root: .
+          paths:
+            - target/projectv2-0.0.1-SNAPSHOT.jar
 
   deploy:
     docker:
       - image: cimg/node:20.0.0
         auth:
-        username: $DOCKERHUB_USERNAME
-        password: $DOCKERHUB_PASSWORD
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - setup_remote_docker:
-        version: 20.10.14
+          version: 20.10.14
       - run:
-        name: Build Docker image
-        command: |
-          docker build -t projectv2.jar . --no-cache
-          docker tag projectv2.jar redwizardofoz/project_test:latest
+          name: Build Docker image
+          command: |
+            docker build -t projectv2.jar . --no-cache
+            docker tag projectv2.jar redwizardofoz/project_test:latest
       - run:
-        name: Push Docker image
-        command: |
-          echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-          docker push redwizardofoz/project_test:latest
+          name: Push Docker image
+          command: |
+            echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+            docker push redwizardofoz/project_test:latest
 
 workflows:
   version: 2
   build-and-deploy:
-  jobs:
-    - build:
-      filters:
-        branches:
-        only: master
-    - deploy:
-      requires:
+    jobs:
       - build:
-        filters:
-          branches:
-            only: master
+          filters:
+            branches:
+              only: master
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
