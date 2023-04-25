@@ -12,10 +12,7 @@ jobs:
           root: .
           paths:
             - target/projectv2-0.0.1-SNAPSHOT.jar
-      - run:
-        name: Copy JAR file to Docker build context
-        command: cp target/projectv2-0.0.1-SNAPSHOT.jar .
-        when: always
+      - run: cp target/projectv2-0.0.1-SNAPSHOT.jar .
   deploy:
     docker:
       - image: cimg/node:20.0.0
