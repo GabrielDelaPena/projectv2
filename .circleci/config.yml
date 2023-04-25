@@ -17,8 +17,8 @@ jobs:
     docker:
       - image: cimg/node:20.0.0
         auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
+          username: $DOCKER_USERNAME
+          password: $DOCKER_PASSWORD
     steps:
       - checkout
       - setup_remote_docker:
