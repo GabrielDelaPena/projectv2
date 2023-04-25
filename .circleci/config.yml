@@ -27,12 +27,12 @@ jobs:
           name: Build Docker image
           command: |
             docker build -t projectv2.jar . --no-cache
-            docker tag projectv2.jar gabriel123125/projectv2
+            docker tag projectv2.jar gabriel123125/projectv2:latest
       - run:
           name: Push Docker image
           command: |
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            docker push gabriel123125/projectv2
+            docker push gabriel123125/projectv2:latest
 
 workflows:
   version: 2
